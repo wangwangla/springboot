@@ -38,4 +38,9 @@ public class UserServiceImpl implements UserService {
     public void editInfo(User user) {
         userDao.save(user);
     }
+
+    @Override
+    public User findById(String id) {
+        return userDao.findById(id).get();
+    }
 }

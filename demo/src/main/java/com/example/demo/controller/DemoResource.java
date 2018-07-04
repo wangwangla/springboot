@@ -13,11 +13,11 @@ import java.util.List;
 @RequestMapping("Demo")
 public interface DemoResource {
     @GetMapping("list")
-    Common<List> getDemoList();
+    Common<List<User>> getDemoList();
     @PostMapping("add")
-    User addInfo(User user);
+    Common<User> addInfo(User user);
     @RequestMapping("delete/{id}")
-    List<User> delete(@PathVariable("id") String id);
+    Common<List<User>> delete(@PathVariable("id") String id);
     @PostMapping("edit")
     List<User> editInfo(@RequestBody User user);
 }
