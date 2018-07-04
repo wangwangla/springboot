@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.User;
+import com.example.demo.vo.response.Common;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 @RequestMapping("Demo")
 public interface DemoResource {
     @GetMapping("list")
-    List<User> getDemoList();
+    Common<List> getDemoList();
     @PostMapping("add")
     User addInfo(User user);
     @RequestMapping("delete/{id}")
