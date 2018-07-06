@@ -20,7 +20,6 @@ import java.util.List;
 public class DemoResourceImpl implements DemoResource {
 
     @Autowired private UserService userService;
-
     /**
      *
      * @return
@@ -90,16 +89,4 @@ public class DemoResourceImpl implements DemoResource {
         return null;
     }
 
-   /* @Override
-    public List<User> delete(@PathVariable("id") String id) {
-        System.out.print("========"+id);
-       userService.delete(id);
-        return getDemoList();
-    }
-
-    @Override
-    public List<User> editInfo(User user) {
-        userService.editInfo(user);
-       return getDemoList();
-    }*/
 }

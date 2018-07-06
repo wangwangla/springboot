@@ -7,8 +7,10 @@ public enum MSG {
     USER_ADD_FAILED(4,"添加失败"),
     USER_DELETE_FAILED(5,"删除失败"),
     USER_DELETE_SUCCESS(6,"删除成功"),
-    USER_DELETE_NULLINFO(7,"没有找到数据，无法删除");
-
+    USER_DELETE_NULLINFO(7,"没有找到数据，无法删除"),
+    USER_IS_NULL(8,"传入参数为null") ,
+    ID_IS_NULL (9,"id为空！") ,
+    USER_NOT_FOUND (10,"用户为找到") ;
     private Integer code;
     private String  msg;
 
