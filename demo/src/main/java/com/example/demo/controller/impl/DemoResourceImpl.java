@@ -1,8 +1,9 @@
 package com.example.demo.controller.impl;
 
+import com.example.demo.Exception.UserException;
+import com.example.demo.entry.User;
 import com.example.demo.msg.MSG;
 import com.example.demo.controller.DemoResource;
-import com.example.demo.User;
 import com.example.demo.service.UserService;
 import com.example.demo.vo.response.Common;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +25,11 @@ public class DemoResourceImpl implements DemoResource {
      *
      * @return
      */
-    public List<User> getData(){
+    public List<User> getData() throws UserException {
         return userService.getList();
     }
     @Override
-    public Common<List<User>> getDemoList() {
+    public Common<List<User>> getDemoList() throws UserException {
         List<User> list = getData();
         Common <List<User>> common = new Common<List<User>>();
         if(list!=null)
@@ -60,7 +61,7 @@ public class DemoResourceImpl implements DemoResource {
     }
 
     @Override
-    public Common<List<User>> delete(@PathVariable("id") String id) {
+    public Common<List<User>> delete(@PathVariable("id") String id) throws UserException {
         Common<List<User>> common = new Common<List<User>>();
         try{
             userService.findById(id);
@@ -85,8 +86,9 @@ public class DemoResourceImpl implements DemoResource {
     }
 
     @Override
-    public List<User> editInfo(User user) {
-        return null;
+    public List<User> editInfo(User user) throws UserException {
+        userService.editInfo(user);
+        return (List<User>) getDemoList();
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.User;
+import com.example.demo.Exception.UserException;
+import com.example.demo.entry.User;
 import com.example.demo.vo.response.Common;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,11 +14,11 @@ import java.util.List;
 @RequestMapping("Demo")
 public interface DemoResource {
     @GetMapping("list")
-    Common<List<User>> getDemoList();
-    @PostMapping("add")
+    Common<List<User>> getDemoList() throws UserException;
+    @PostMapping(value = "add")
     Common<User> addInfo(User user);
     @RequestMapping("delete/{id}")
-    Common<List<User>> delete(@PathVariable("id") String id);
+    Common<List<User>> delete(@PathVariable("id") String id) throws UserException;
     @PostMapping("edit")
-    List<User> editInfo(@RequestBody User user);
+    List<User> editInfo(@RequestBody User user) throws UserException;
 }
